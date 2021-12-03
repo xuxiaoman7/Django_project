@@ -75,8 +75,14 @@ WSGI_APPLICATION = 'SE2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':'repair', #数据库名字
+        'USER':'root', #用户名
+        'PASSWORD':'Zjdx2019.',#用户密码
+        'HOST':'localhost', #数据库地址，默认本机
+        'POST':'3306'  #默认端口号
+
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
