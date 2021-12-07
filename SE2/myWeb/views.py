@@ -65,17 +65,18 @@ def Citizen(request):
 def Government(request):
     if request.method == "GET":
         #这里要获取表里hole的个数
-        hole_number = 9
+        number_of_hole = 9
+        hole_number = "Hole_ID:00" + str(number_of_hole)
         return render(request,'Government.html',{"hole_number":hole_number})
     if request.method == "POST":
         pass
 
 def Worker(request):
     if request.method == "GET":
-        #这里需要获取hole里第一行的信息
-        hole_id = "001"
-        required_material = "material"
-        required_equpiment = "equipment"
+        #这里需要获取hole里优先级最高的信息
+        hole_id = "Hole_ID:001"
+        required_material = "Reqired_Material:material1"
+        required_equpiment = "Required_Equipment:equipment1"
         return render(request,"Worker.html",{"hole_id":hole_id,"required_material":required_material,"required_equipment":required_equpiment})
     if request.method == "POST":
         pass

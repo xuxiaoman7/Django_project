@@ -1,22 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Government</title>
+  <meta charset="UTF-8">
+    {% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录</title>
+  <style>
+    body {
+      background: url({% static 'images/bg.jpg' %}) no-repeat center center;
+      background-size:cover;
+      background-attachment:fixed;
+      background-color:#CCCCCC;
+    }
+
+    .div {
+      width: 400px;
+      height: 500px;
+      /* 实现整个框居中效果 */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* 溢出隐藏、清除浮动、解决外边距塌陷等等 */
+      overflow: hidden;
+    }
+
+
+
+    .sign-div {
+      width: 400px;
+      height: 470px;
+      text-align: center;
+      outline: none;
+      border: 1px solid rgb(94, 92, 233);
+      border-radius: 8px;
+      background-color: rgba(172, 235, 243, .2);
+      box-sizing: border-box;
+    }
+
+    .sign-div h1 {
+      margin-bottom: 10px;
+      color: rgb(29, 26, 26);
+    }
+
+    input {
+      width: 250px;
+      height: 44px;
+      border: none;
+      /* 元素周围的轮廓无效 */
+      outline: none;
+      /* 为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
+      box-sizing: border-box;
+      display: block;
+      padding: 0 16px;
+    }
+
+    .input-text {
+      margin: 10px auto;
+      border-radius: 16px;
+    }
+
+    .input-text:focus {
+      border: 0.5px solid rgb(76, 76, 233);
+      transition: 0.5s;
+      border-radius: 4px;
+    }
+
+    .input-btn {
+      margin: 25px auto 20px;
+      border-radius: 44px;
+      cursor: pointer;
+      background-color: rgba(23, 139, 233, 0.8);
+    }
+
+    .input-btn:hover {
+      color: #fff;
+      font-size: 16;
+      border-radius: 4px;
+      transition: 0.5s;
+      background-color: rgba(10, 138, 243, 0.8);
+    }
+
+    .sign-div a {
+      text-decoration: none;
+      color: rgb(102, 79, 117);
+      font-size: 14px;
+      padding: 10px;
+      transition: 0.8s;
+      display: block;
+    }
+
+    a:hover {
+      color: #FFF;
+      background: rgba(0, 0, 0, .3);
+      border-radius: 8px;
+    }
+  </style>
 </head>
+
 <body>
-    <p>now the number of hole is : {{hole_number}}</p>
-    <form action="/Government/" method="post">
-        {% csrf_token %}
-        <p>hole id:<input name="hole_id" type="text"/></p>
-        <p>         <input name="query" type="submit" value="query"/></p>
-        <p>required people:<input name="required_people" type="text"/></p>
-        <p>require material:<input name = "required_material" type="text"></p>
-        <p>require time:<input name="required_time" type="text"></p>
-        <p>hole status:<input name = "hole_status" type="text"></p>
-        <p>required equipment:<input name="required_equipment" type="text"> </p>
-        <p>budget:<input name="budget" type="text"> </p>
-        <p>         <input name="query" type="submit" value="login"/></p>
-    </form>
+  <div class="div">
+    <div class="sign-div">
+      <form action="/Government/" method="POST">
+          {% csrf_token %}
+        <h2>Allocation</h2>
+        <input class="input-text" type="text" name="hole_id" placeholder={{hole_number}} readOnly=readOnly>
+        <input class="input-text" type="text" name="required_people" placeholder="Allocated Person">
+          <input class="input-text" type="text" name = "require_material" placeholder="Allocated Material">
+          <input class="input-text" type="text" name="required_time" placeholder="Allocated Time">
+          <input class="input-text" type="text" name="required_equipment" placeholder="Allocated Equipment">
+          <input class="input-text" type="text" name="budget" placeholder="Budget">
+        <input class="input-btn"  type="submit" value="Submit">
+        <a href="/Login/">Back</a>
+      </form>
+    </div>
+  </div>
 </body>
+
 </html>
+
+
+
+
+
