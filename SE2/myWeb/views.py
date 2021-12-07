@@ -42,9 +42,13 @@ def Citizen(request):
     if request.method == "GET":
         return render(request,'citizen.html')
     if request.method == 'POST' and request.POST:
+        #储存citizen信息
         name = request.POST.get("name")
         address = request.POST.get("address")
         phone = request.POST.get("phone")
+        citizen1 = Citizen(name = name,address = address,phone = phone)
+        citizen1.save()
+        #储存hole信息
         hole_street = request.POST.get("hole_street")
         hole_location = request.POST.get("hole_location")
         hole_size = request.POST.get("hole_size")
@@ -67,12 +71,11 @@ def Citizen(request):
         #自动填充当前hole的hole status
         hole_status = "waiting_for_repair"
         #开始存入表中数据
-        hole1 = Hole(hole_id = hole_id,hole_street = hole_street,hole_distinct= hole_distinct,hole_location = hole_location,hole_size = int(hole_size),hole_priority = hole_priority)
+        hole1 = Hole(citizen_name = name,hole_id = hole_id,hole_street = hole_street,hole_distinct= hole_distinct,hole_location = hole_location,hole_size = int(hole_size),hole_priority = hole_priority)
         hole1.save()
         #弹窗设置
         messages.success(request,'Save Successfully!')
         return render(request, 'citizen.html')
-
 
 
 def Government(request):
@@ -95,17 +98,3 @@ def Worker(request):
         pass
 
 
-def runoob(request):
-    #创建字典context
-    #context = {}
-    #键值为’hello‘的值为该字符串
-    #context['hello'] = 'Hello world!'
-    #传入该字典
-    #return render(request,'index.html',context)
-
-    #views_name = "教程"
-    #return render(request,"index.html",{"name":views_name})
-
-    #views_str = "<a href = 'https://www.runoob.com/'>点击跳转</a>"
-    #return render(request,"index.html",{"views_str":views_str})
-    return render(request,"index.html")

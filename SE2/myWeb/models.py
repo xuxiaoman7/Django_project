@@ -13,8 +13,7 @@ class Person(models.Model):
 市民信息表
 """
 class Citizen(models.Model):
-    citizen_id = models.CharField(primary_key=True,max_length=32)
-    name = models.CharField(max_length=10)
+    name = models.CharField(primary_key=True,max_length=10)
     address = models.CharField(max_length=20)
     phone = models.CharField(max_length=11)
 
@@ -23,6 +22,7 @@ class Citizen(models.Model):
 路面坑洼表
 """
 class Hole(models.Model):
+    citizen_name = models.CharField(max_length=32,default=" ")
     hole_id = models.CharField(primary_key=True,max_length=32)
     hole_street = models.CharField(max_length=32)
     hole_distinct = models.CharField(max_length=32,default="Baiyun")
