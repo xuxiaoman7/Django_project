@@ -15,7 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from myWeb import views
+from django.conf.urls import url
+from . import search
 
+
+#绑定跳转的路径与方法
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #url(r'^Login',views.Login),
+    #登录界面
+    #url('Login_form/',views.Login_form),
+
+    #登录界面
+    url('Login/',views.Login),
+    #url('runoob/',views.runoob),
+    #url(r'^search-form/$',search.search_form),
+    #url(r'^search/$',search.search),
+    url('index/',views.index),
+    url('Citizen/',views.Citizen),
+    url('Government/',views.Government),
+    url('Worker/',views.Worker),
 ]

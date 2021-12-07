@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Citizen</title>
+</head>
+<body>
+    <form action="/Citizen/" method="post">
+        {% csrf_token %}
+        <p>name:<input name="name" type="text"></p>
+        <p>address:<input name="address" type="text"></p>
+        <p>phone:<input name="phone" type="text"></p>
+        <p>hole street:<input name="hole_street" type="text"></p>
+        <p>hole location:<input name="hole_location" type="text"></p>
+        <p>hole size:<input name="hole_size" type="text"></p>
+        <p>         <input type="submit" value="submit"/></p>
+    </form>
+</body>
+</html>

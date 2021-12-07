@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Government</title>
+</head>
+<body>
+    <p>now the number of hole is : {{hole_number}}</p>
+    <form action="/Government/" method="post">
+        {% csrf_token %}
+        <p>hole id:<input name="hole_id" type="text"/></p>
+        <p>         <input name="query" type="submit" value="query"/></p>
+        <p>required people:<input name="required_people" type="text"/></p>
+        <p>require material:<input name = "required_material" type="text"></p>
+        <p>require time:<input name="required_time" type="text"></p>
+        <p>hole status:<input name = "hole_status" type="text"></p>
+        <p>required equipment:<input name="required_equipment" type="text"> </p>
+        <p>budget:<input name="budget" type="text"> </p>
+        <p>         <input name="query" type="submit" value="login"/></p>
+    </form>
+</body>
+</html>
